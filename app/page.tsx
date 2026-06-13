@@ -157,6 +157,18 @@ export default function Home() {
         <SectionLabel>Film</SectionLabel>
         <SectionHeading>Watch</SectionHeading>
         <Rule />
+        <p style={{
+          maxWidth: 640,
+          margin: "48px auto 0",
+          fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
+          fontStyle: "italic",
+          fontSize: "clamp(0.95rem, 1.4vw, 1.1rem)",
+          lineHeight: 1.8,
+          color: "rgba(26,9,0,0.72)",
+          textAlign: "center",
+        }}>
+          This experimental short film follows a young fashion designer navigating the challenges of creative burnout. Overwhelmed by the demands of her craft and disconnected from the inspiration that once fuelled her ambition, she spirals into a cycle of anxiety, self doubt, and emotional exhaustion. Through a blend of visual experimentation and psychological storytelling, the film examines the impact of creative pressure on personal identity. As her emotional struggles intensify, she ultimately learns to channel them into artistic expression, rediscovering both her creativity and herself in the process.
+        </p>
         <div style={{ marginTop: 48, position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 2, overflow: "hidden", boxShadow: "0 8px 48px rgba(10,4,0,0.28)" }}>
           <iframe
             src="https://player.vimeo.com/video/1200977778?badge=0&autopause=0&player_id=0&app_id=58479&color=c8a96e&title=0&byline=0&portrait=0"
