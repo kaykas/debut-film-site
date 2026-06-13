@@ -89,7 +89,7 @@ export default function Home() {
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 50,
+        zIndex: 100,
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* ── WATCH ── */}
-      <section id="watch" style={{ padding: "100px 48px", maxWidth: 1100, margin: "0 auto" }}>
+      <section id="watch" style={{ padding: "100px 48px", maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <SectionLabel>Film</SectionLabel>
         <SectionHeading>Watch</SectionHeading>
         <Rule />
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* ── STILLS ── */}
-      <section id="stills" style={{ padding: "100px 48px", maxWidth: 1200, margin: "0 auto" }}>
+      <section id="stills" style={{ padding: "100px 48px", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <SectionLabel>Stills</SectionLabel>
         <SectionHeading>From the Set</SectionHeading>
         <Rule />
@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* ── CREDITS ── */}
-      <section id="credits" style={{ padding: "100px 48px", maxWidth: 760, margin: "0 auto" }}>
+      <section id="credits" style={{ padding: "100px 48px", maxWidth: 760, margin: "0 auto", position: "relative", zIndex: 1 }}>
         <SectionLabel>Credits</SectionLabel>
         <SectionHeading>The Film</SectionHeading>
         <Rule />
@@ -217,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" style={{ padding: "80px 48px 120px", textAlign: "center", background: "linear-gradient(to bottom, transparent, rgba(10,4,0,0.07))" }}>
+      <section id="contact" style={{ padding: "80px 48px 120px", textAlign: "center", background: "linear-gradient(to bottom, transparent, rgba(10,4,0,0.07))", position: "relative", zIndex: 1 }}>
         <Rule style={{ maxWidth: 320, margin: "0 auto 64px" }} />
         <p style={{ fontSize: "0.7rem", letterSpacing: "0.5em", textTransform: "uppercase", color: "rgba(30,14,2,0.45)", fontFamily: "Georgia, serif", marginBottom: 12 }}>
           Contact
