@@ -132,6 +132,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── FILM ── */}
+      <section className="px-6 py-20 max-w-4xl mx-auto">
+        <p className="text-center text-xs tracking-[0.5em] uppercase mb-2" style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}>
+          Film
+        </p>
+        <h2 className="text-center font-serif italic text-3xl mb-10" style={{ color: "#1a0900" }}>
+          Watch
+        </h2>
+        <Rule />
+        <div className="mt-10 relative w-full" style={{ paddingTop: "56.25%", borderRadius: 2, overflow: "hidden", boxShadow: "0 8px 40px rgba(10,4,0,0.30)" }}>
+          <iframe
+            src="https://player.vimeo.com/video/1200964992?badge=0&autopause=0&player_id=0&app_id=58479&color=c8a96e&title=0&byline=0&portrait=0"
+            className="absolute inset-0 w-full h-full"
+            style={{ border: "none", filter: "sepia(0.12) contrast(0.97)" }}
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Debút — Sofia Harper"
+          />
+        </div>
+      </section>
+
       {/* ── GALLERY ── */}
       <section className="px-6 py-20 max-w-5xl mx-auto">
         <p className="text-center text-xs tracking-[0.5em] uppercase mb-2" style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}>
