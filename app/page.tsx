@@ -12,6 +12,10 @@ const stills = [
   { src: "/stills/still-06.jpg", alt: "Ieva drawing at the table" },
   { src: "/stills/still-07.jpg", alt: "Studio light — mannequins and drapes" },
   { src: "/stills/still-08.jpg", alt: "Gold gown full length" },
+  { src: "/stills/still-09.jpg", alt: "Studio with mannequin and ladder" },
+  { src: "/stills/still-10.jpg", alt: "Sewing machine and candles" },
+  { src: "/stills/still-11.jpg", alt: "Pink and lace garments on ladder" },
+  { src: "/stills/still-12.jpg", alt: "Garments draped on ladder" },
 ];
 
 // Hero cycles 4 distinct stills; gallery shows all 8
