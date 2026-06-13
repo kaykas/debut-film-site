@@ -99,7 +99,7 @@ export default function Home() {
         WebkitBackdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(180,140,60,0.15)",
       }}>
-        <span style={{
+        <span className="nav-logo" style={{
           fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
           fontStyle: "italic",
           fontSize: "1rem",
@@ -111,7 +111,7 @@ export default function Home() {
         }}>
           Début
         </span>
-        <div style={{ display: "flex", gap: 32, flexShrink: 0 }}>
+        <div className="nav-links" style={{ display: "flex", gap: 32, flexShrink: 0 }}>
           {["Watch", "Stills", "Credits", "Contact"].map((label) => (
             <a
               key={label}

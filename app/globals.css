@@ -50,6 +50,16 @@ body::after {
   background: radial-gradient(ellipse at center, transparent 50%, rgba(30, 10, 2, 0.18) 100%);
 }
 
+/* ── NAV RESPONSIVE ── */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-logo {
+    margin-right: 0 !important;
+  }
+}
+
 /* ── TYPOGRAPHY ── */
 h1, h2, h3 {
   font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
