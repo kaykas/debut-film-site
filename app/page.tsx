@@ -93,27 +93,37 @@ export default function Home() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "16px 48px",
-        background: "rgba(8,3,0,0.72)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
-        borderBottom: "1px solid rgba(200,160,80,0.12)",
+        padding: "14px 40px",
+        background: "rgba(6,2,0,0.80)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(180,140,60,0.15)",
       }}>
-        <span style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "1.1rem", color: "rgba(245,232,200,0.90)", letterSpacing: "0.06em" }}>
+        <span style={{
+          fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
+          fontStyle: "italic",
+          fontSize: "1rem",
+          color: "rgba(240,220,170,0.92)",
+          letterSpacing: "0.05em",
+          whiteSpace: "nowrap",
+          flexShrink: 0,
+          marginRight: 48,
+        }}>
           Début
         </span>
-        <div style={{ display: "flex", gap: 40 }}>
+        <div style={{ display: "flex", gap: 32, flexShrink: 0 }}>
           {["Watch", "Stills", "Credits", "Contact"].map((label) => (
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
               style={{
                 fontFamily: "Georgia, serif",
-                fontSize: "0.65rem",
-                letterSpacing: "0.42em",
+                fontSize: "0.6rem",
+                letterSpacing: "0.38em",
                 textTransform: "uppercase",
-                color: "rgba(245,232,200,0.60)",
+                color: "rgba(220,195,140,0.55)",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
               {label}
