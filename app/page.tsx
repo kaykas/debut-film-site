@@ -14,6 +14,9 @@ const stills = [
   { src: "/stills/still-08.jpg", alt: "Gold gown full length" },
 ];
 
+// Hero cycles 4 distinct stills; gallery shows all 8
+const heroStills = [stills[0], stills[2], stills[5], stills[7]];
+
 const credits = [
   { role: "Directed by",            name: "Sofia Harper" },
   { role: "Assistant Director",     name: "Tim Hayo" },
@@ -29,7 +32,7 @@ const credits = [
   { role: "Music",                  name: "Matias Fröhlich" },
 ];
 
-const thanks = ["Yuki Tanaka", "Priya Mehta", "Carlos Vega"];
+
 
 function Ornament() {
   return (
@@ -57,7 +60,7 @@ export default function Home() {
   // auto-cycle hero still every 4s
   useEffect(() => {
     const id = setInterval(() => {
-      setActiveIdx((i) => (i + 1) % stills.length);
+      setActiveIdx((i) => (i + 1) % heroStills.length);
     }, 4000);
     return () => clearInterval(id);
   }, []);
@@ -69,7 +72,7 @@ export default function Home() {
       <section className="relative w-full" style={{ height: "100svh", minHeight: 560 }}>
 
         {/* stacked hero images */}
-        {stills.map((s, i) => (
+        {heroStills.map((s, i) => (
           <div
             key={s.src}
             className="absolute inset-0 transition-opacity duration-1000"
@@ -113,7 +116,7 @@ export default function Home() {
 
         {/* dot nav */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-          {stills.map((_, i) => (
+          {heroStills.map((_, i) => (
             <button
               key={i}
               onClick={() => setActiveIdx(i)}
@@ -223,23 +226,6 @@ export default function Home() {
         </div>
 
         <Ornament />
-        <Rule />
-
-        {/* Special thanks */}
-        <div className="text-center mt-10">
-          <p
-            className="text-xs uppercase tracking-[0.4em] mb-4"
-            style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}
-          >
-            Special Thanks
-          </p>
-          <p
-            className="font-serif italic"
-            style={{ fontSize: "1.15rem", color: "#1a0900", lineHeight: 2, letterSpacing: "0.03em" }}
-          >
-            {thanks.join("  ·  ")}
-          </p>
-        </div>
       </section>
 
       {/* ── CONTACT ── */}
