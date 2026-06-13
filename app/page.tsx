@@ -159,7 +159,7 @@ export default function Home() {
         <Rule />
         <div style={{ marginTop: 48, position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 2, overflow: "hidden", boxShadow: "0 8px 48px rgba(10,4,0,0.28)" }}>
           <iframe
-            src="https://player.vimeo.com/video/1200964992?badge=0&autopause=0&player_id=0&app_id=58479&color=c8a96e&title=0&byline=0&portrait=0"
+            src="https://player.vimeo.com/video/1200977778?badge=0&autopause=0&player_id=0&app_id=58479&color=c8a96e&title=0&byline=0&portrait=0"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", filter: "sepia(0.10) contrast(0.97)" }}
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             title="Début — Sofia Harper"
