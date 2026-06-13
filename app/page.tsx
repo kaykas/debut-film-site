@@ -93,28 +93,25 @@ export default function Home() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "20px 48px",
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%)",
+        padding: "18px 48px",
+        background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)",
       }}>
-        <span style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: "1rem", color: "rgba(245,232,200,0.85)", letterSpacing: "0.08em" }}>
+        <span style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "1.1rem", color: "rgba(245,232,200,0.90)", letterSpacing: "0.06em" }}>
           Début
         </span>
-        <div style={{ display: "flex", gap: 36 }}>
+        <div style={{ display: "flex", gap: 40 }}>
           {["Watch", "Stills", "Credits", "Contact"].map((label) => (
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
               style={{
                 fontFamily: "Georgia, serif",
-                fontSize: "0.7rem",
-                letterSpacing: "0.35em",
+                fontSize: "0.65rem",
+                letterSpacing: "0.42em",
                 textTransform: "uppercase",
-                color: "rgba(245,232,200,0.65)",
+                color: "rgba(245,232,200,0.60)",
                 textDecoration: "none",
-                transition: "opacity 0.2s",
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "")}
             >
               {label}
             </a>
@@ -123,7 +120,7 @@ export default function Home() {
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ position: "relative", width: "100%", height: "100svh", minHeight: 600, background: "#000" }}>
+      <section style={{ position: "relative", width: "100%", height: "100vh", minHeight: 640, background: "#000" }}>
         <video
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
           src="/debut-hero.mp4"
