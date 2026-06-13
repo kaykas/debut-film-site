@@ -89,12 +89,15 @@ export default function Home() {
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 100,
+        zIndex: 300,
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "18px 48px",
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)",
+        padding: "16px 48px",
+        background: "rgba(8,3,0,0.72)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        borderBottom: "1px solid rgba(200,160,80,0.12)",
       }}>
         <span style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "1.1rem", color: "rgba(245,232,200,0.90)", letterSpacing: "0.06em" }}>
           Début
