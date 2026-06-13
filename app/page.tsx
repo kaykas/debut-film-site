@@ -108,7 +108,10 @@ export default function Home() {
           flexShrink: 0,
           marginRight: 48,
         }}>
-          Début &nbsp;<span style={{ fontStyle: "normal", fontWeight: 400, fontSize: "0.6rem", letterSpacing: "0.3em", textTransform: "uppercase", opacity: 0.5 }}>an experimental film</span>
+          <span style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <span>Début</span>
+            <span style={{ fontStyle: "normal", fontWeight: 400, fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase", opacity: 0.5 }}>an experimental film by Sofia Harper</span>
+          </span>
         </span>
         <div className="nav-links" style={{ display: "flex", gap: 32, flexShrink: 0 }}>
           {["Watch", "Stills", "Credits", "Contact"].map((label) => (
