@@ -60,18 +60,34 @@ export default function Home() {
       {/* ── HERO ── */}
       <section className="relative w-full" style={{ height: "100svh", minHeight: 560, background: "#000" }}>
 
-        {/* looping title clip */}
+        {/* film footage background */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/debut-title.mp4"
+          src="/debut-hero.mp4"
           autoPlay
           loop
           muted
           playsInline
         />
 
-        {/* subtle bottom fade into page background */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(10,4,0,0.5) 100%)" }} />
+        {/* dark overlay */}
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.38)" }} />
+
+        {/* title clip centred on top */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <video
+            src="/debut-title.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ mixBlendMode: "screen" }}
+          />
+        </div>
+
+        {/* bottom fade */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(10,4,0,0.55) 100%)" }} />
       </section>
 
       {/* ── FILM ── */}
