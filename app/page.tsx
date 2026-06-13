@@ -156,15 +156,15 @@ export default function Home() {
       </section>
 
       {/* ── STILLS ── */}
-      <section id="stills" style={{ padding: "100px 48px", maxWidth: 1400, margin: "0 auto" }}>
+      <section id="stills" style={{ padding: "100px 48px", maxWidth: 1200, margin: "0 auto" }}>
         <SectionLabel>Stills</SectionLabel>
         <SectionHeading>From the Set</SectionHeading>
         <Rule />
         <div style={{
           marginTop: 48,
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 12,
+          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gap: 16,
         }}>
           {stills.map((s, i) => (
             <div
@@ -175,8 +175,6 @@ export default function Home() {
                 overflow: "hidden",
                 borderRadius: 2,
                 boxShadow: "0 4px 20px rgba(10,4,0,0.20)",
-                // Make first image span 2 cols for visual interest
-                ...(i === 0 ? { gridColumn: "span 2", aspectRatio: "3/2" } : {}),
               }}
             >
               <Image
