@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
 
 const stills = [
   { src: "/stills/still-01.jpg", alt: "Designer's workbench by candlelight" },
@@ -17,129 +16,177 @@ const stills = [
   { src: "/stills/still-11.jpg", alt: "Garments draped on ladder" },
 ];
 
-
-
 const credits = [
-  { role: "A short film by",        name: "Sofia Harper" },
-  { role: "Played by",              name: "Ieva Šmaižytė" },
-  { role: "Director of Photography",name: "Nil Gruner" },
-  { role: "Assistant Camera",       name: "Daria Makarenko" },
-  { role: "Sound",                  name: "Dylan Rathmann" },
-  { role: "Location",               name: "Pulsraum Berlin" },
-  { role: "Designs by",             name: "Lilith Kunst" },
+  { role: "A short film by",         name: "Sofia Harper" },
+  { role: "Played by",               name: "Ieva Šmaižytė" },
+  { role: "Director of Photography", name: "Nil Gruner" },
+  { role: "Assistant Camera",        name: "Daria Makarenko" },
+  { role: "Sound",                   name: "Dylan Rathmann" },
+  { role: "Location",                name: "Pulsraum Berlin" },
+  { role: "Designs by",              name: "Lilith Kunst" },
 ];
-
-
 
 function Ornament() {
   return (
-    <div className="flex items-center justify-center gap-3 my-10 opacity-40">
-      <div className="h-px w-10 bg-[#1a0900]" />
-      <div className="w-2 h-2 bg-[#1a0900] rotate-45" />
-      <div className="h-px w-10 bg-[#1a0900]" />
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, margin: "40px 0", opacity: 0.4 }}>
+      <div style={{ height: 1, width: 40, background: "#1a0900" }} />
+      <div style={{ width: 8, height: 8, background: "#1a0900", transform: "rotate(45deg)" }} />
+      <div style={{ height: 1, width: 40, background: "#1a0900" }} />
     </div>
   );
 }
 
-function Rule({ className = "" }: { className?: string }) {
+function Rule({ style = {} }: { style?: React.CSSProperties }) {
   return (
-    <hr
-      className={`rule my-0 ${className}`}
-      style={{ background: "linear-gradient(to right, transparent, rgba(30,10,2,0.30), transparent)", height: "1px", border: "none" }}
-    />
+    <hr style={{
+      border: "none",
+      height: 1,
+      background: "linear-gradient(to right, transparent, rgba(30,10,2,0.28), transparent)",
+      margin: 0,
+      ...style,
+    }} />
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{
+      textAlign: "center",
+      fontSize: "0.7rem",
+      letterSpacing: "0.5em",
+      textTransform: "uppercase",
+      color: "rgba(30,14,2,0.45)",
+      fontFamily: "Georgia, serif",
+      marginBottom: 8,
+    }}>
+      {children}
+    </p>
+  );
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 style={{
+      textAlign: "center",
+      fontFamily: "'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif",
+      fontStyle: "italic",
+      fontSize: "clamp(1.6rem, 2.5vw, 2.2rem)",
+      color: "#1a0900",
+      marginBottom: 48,
+    }}>
+      {children}
+    </h2>
   );
 }
 
 export default function Home() {
-  const galleryRef = useRef<HTMLDivElement>(null);
-
   return (
-    <main className="min-h-screen" style={{ background: "linear-gradient(160deg, #f2deae 0%, #e8cc8a 40%, #edd69c 70%, #d4b870 100%)" }}>
+    <main style={{ background: "linear-gradient(160deg, #f2deae 0%, #e8cc8a 40%, #edd69c 70%, #d4b870 100%)", minHeight: "100vh" }}>
+
+      {/* ── NAV ── */}
+      <nav style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "20px 48px",
+        background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 100%)",
+      }}>
+        <span style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: "1rem", color: "rgba(245,232,200,0.85)", letterSpacing: "0.08em" }}>
+          Début
+        </span>
+        <div style={{ display: "flex", gap: 36 }}>
+          {["Watch", "Stills", "Credits", "Contact"].map((label) => (
+            <a
+              key={label}
+              href={`#${label.toLowerCase()}`}
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "0.7rem",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                color: "rgba(245,232,200,0.65)",
+                textDecoration: "none",
+                transition: "opacity 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "")}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </nav>
 
       {/* ── HERO ── */}
-      <section className="relative w-full" style={{ height: "100svh", minHeight: 560, background: "#000" }}>
-
-        {/* film footage background */}
+      <section style={{ position: "relative", width: "100%", height: "100svh", minHeight: 600, background: "#000" }}>
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
           src="/debut-hero.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
+          autoPlay loop muted playsInline
         />
-
-        {/* dark overlay */}
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.38)" }} />
-
-        {/* title clip centred on top */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.38)" }} />
+        <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
           <video
             src="/debut-title.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            style={{ mixBlendMode: "screen" }}
+            autoPlay loop muted playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", mixBlendMode: "screen" }}
           />
         </div>
-
-        {/* bottom fade */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(10,4,0,0.55) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 60%, rgba(10,4,0,0.6) 100%)" }} />
       </section>
 
-      {/* ── FILM ── */}
-      <section className="px-6 py-20 max-w-4xl mx-auto">
-        <p className="text-center text-xs tracking-[0.5em] uppercase mb-2" style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}>
-          Film
-        </p>
-        <h2 className="text-center font-serif italic text-3xl mb-10" style={{ color: "#1a0900" }}>
-          Watch
-        </h2>
+      {/* ── WATCH ── */}
+      <section id="watch" style={{ padding: "100px 48px", maxWidth: 1100, margin: "0 auto" }}>
+        <SectionLabel>Film</SectionLabel>
+        <SectionHeading>Watch</SectionHeading>
         <Rule />
-        <div className="mt-10 relative w-full" style={{ paddingTop: "56.25%", borderRadius: 2, overflow: "hidden", boxShadow: "0 8px 40px rgba(10,4,0,0.30)" }}>
+        <div style={{ marginTop: 48, position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 2, overflow: "hidden", boxShadow: "0 8px 48px rgba(10,4,0,0.28)" }}>
           <iframe
             src="https://player.vimeo.com/video/1200964992?badge=0&autopause=0&player_id=0&app_id=58479&color=c8a96e&title=0&byline=0&portrait=0"
-            className="absolute inset-0 w-full h-full"
-            style={{ border: "none", filter: "sepia(0.12) contrast(0.97)" }}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none", filter: "sepia(0.10) contrast(0.97)" }}
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             title="Début — Sofia Harper"
           />
         </div>
       </section>
 
-      {/* ── GALLERY ── */}
-      <section className="px-6 py-20 max-w-5xl mx-auto">
-        <p className="text-center text-xs tracking-[0.5em] uppercase mb-2" style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}>
-          Stills
-        </p>
-        <h2 className="text-center font-serif italic text-3xl mb-10" style={{ color: "#1a0900" }}>
-          From the Set
-        </h2>
+      {/* ── STILLS ── */}
+      <section id="stills" style={{ padding: "100px 48px", maxWidth: 1400, margin: "0 auto" }}>
+        <SectionLabel>Stills</SectionLabel>
+        <SectionHeading>From the Set</SectionHeading>
         <Rule />
-
-        <div
-          ref={galleryRef}
-          className="mt-10 grid gap-3"
-          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}
-        >
+        <div style={{
+          marginTop: 48,
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: 12,
+        }}>
           {stills.map((s, i) => (
             <div
               key={s.src}
-              className="relative overflow-hidden"
               style={{
+                position: "relative",
                 aspectRatio: "3/4",
+                overflow: "hidden",
                 borderRadius: 2,
-                boxShadow: "0 4px 24px rgba(10,4,0,0.22)",
+                boxShadow: "0 4px 20px rgba(10,4,0,0.20)",
+                // Make first image span 2 cols for visual interest
+                ...(i === 0 ? { gridColumn: "span 2", aspectRatio: "3/2" } : {}),
               }}
             >
               <Image
                 src={s.src}
                 alt={s.alt}
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                style={{ objectFit: "cover", transition: "transform 0.6s ease", filter: "sepia(0.15) contrast(0.95) brightness(0.97)" }}
+                onMouseEnter={e => ((e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)")}
+                onMouseLeave={e => ((e.currentTarget as HTMLImageElement).style.transform = "")}
+                sizes="(max-width: 768px) 100vw, 25vw"
               />
             </div>
           ))}
@@ -147,34 +194,26 @@ export default function Home() {
       </section>
 
       {/* ── CREDITS ── */}
-      <section className="px-6 py-20 max-w-2xl mx-auto">
-        <p className="text-center text-xs tracking-[0.5em] uppercase mb-2" style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}>
-          Credits
-        </p>
-        <h2 className="text-center font-serif italic text-3xl mb-10" style={{ color: "#1a0900" }}>
-          The Film
-        </h2>
+      <section id="credits" style={{ padding: "100px 48px", maxWidth: 760, margin: "0 auto" }}>
+        <SectionLabel>Credits</SectionLabel>
+        <SectionHeading>The Film</SectionHeading>
         <Rule />
         <Ornament />
 
-        <div className="space-y-7">
+        {/* desktop: 2-col grid for credits */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "32px 48px",
+        }}>
           {credits.map(({ role, name }, i) => (
-            <div key={i} className="text-center">
-              <p
-                className="text-xs uppercase tracking-[0.4em] mb-1"
-                style={{ color: "rgba(30,14,2,0.55)", fontFamily: "Georgia, serif" }}
-              >
+            <div key={i} style={{ textAlign: "center", padding: "16px 0", borderBottom: "1px solid rgba(30,10,2,0.10)" }}>
+              <p style={{ fontSize: "0.65rem", letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif", marginBottom: 6 }}>
                 {role}
               </p>
-              <p
-                className="font-serif italic"
-                style={{ fontSize: "1.35rem", color: "#1a0900", letterSpacing: "0.04em" }}
-              >
+              <p style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "1.2rem", color: "#1a0900", letterSpacing: "0.04em" }}>
                 {name}
               </p>
-              {i < credits.length - 1 && (
-                <Rule className="mt-7" />
-              )}
             </div>
           ))}
         </div>
@@ -183,43 +222,29 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section
-        className="px-6 py-20 text-center"
-        style={{ background: "linear-gradient(to bottom, transparent, rgba(10,4,0,0.08))" }}
-      >
-        <Rule className="max-w-sm mx-auto mb-16" />
-        <p
-          className="text-xs uppercase tracking-[0.5em] mb-3"
-          style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}
-        >
+      <section id="contact" style={{ padding: "80px 48px 120px", textAlign: "center", background: "linear-gradient(to bottom, transparent, rgba(10,4,0,0.07))" }}>
+        <Rule style={{ maxWidth: 320, margin: "0 auto 64px" }} />
+        <p style={{ fontSize: "0.7rem", letterSpacing: "0.5em", textTransform: "uppercase", color: "rgba(30,14,2,0.45)", fontFamily: "Georgia, serif", marginBottom: 12 }}>
           Contact
         </p>
         <a
           href="mailto:sofiamharper1@gmail.com"
-          className="font-serif italic transition-opacity hover:opacity-60"
-          style={{ fontSize: "clamp(1.1rem, 3vw, 1.5rem)", color: "#1a0900", letterSpacing: "0.03em" }}
+          style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "clamp(1rem, 1.8vw, 1.4rem)", color: "#1a0900", letterSpacing: "0.03em", textDecoration: "none", display: "block", marginBottom: 16 }}
         >
           sofiamharper1@gmail.com
         </a>
-
-        <div className="mt-8">
-          <a
-            href="https://www.instagram.com/debutshortfilm"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-serif italic transition-opacity hover:opacity-60"
-            style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", color: "#1a0900", letterSpacing: "0.03em", opacity: 0.75 }}
-          >
-            @debutshortfilm
-          </a>
-        </div>
+        <a
+          href="https://www.instagram.com/debutshortfilm"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontFamily: "'Palatino Linotype', Palatino, Georgia, serif", fontStyle: "italic", fontSize: "clamp(0.9rem, 1.5vw, 1.15rem)", color: "#1a0900", letterSpacing: "0.03em", textDecoration: "none", opacity: 0.65, display: "block" }}
+        >
+          @debutshortfilm
+        </a>
 
         <Ornament />
 
-        <p
-          className="text-xs tracking-[0.3em] uppercase"
-          style={{ color: "rgba(30,14,2,0.35)", fontFamily: "Georgia, serif" }}
-        >
+        <p style={{ fontSize: "0.65rem", letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(30,14,2,0.30)", fontFamily: "Georgia, serif" }}>
           © 2026 Sofia Harper
         </p>
       </section>
