@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 const stills = [
   { src: "/stills/still-01.jpg", alt: "Gold gown on mannequin — Pulsraum Berlin" },
@@ -18,8 +18,7 @@ const stills = [
   { src: "/stills/still-12.jpg", alt: "Garments draped on ladder" },
 ];
 
-// Hero cycles 4 distinct stills; gallery shows all 8
-const heroStills = [stills[0], stills[2], stills[5], stills[7]];
+
 
 const credits = [
   { role: "A short film by",        name: "Sofia Harper" },
@@ -53,85 +52,26 @@ function Rule({ className = "" }: { className?: string }) {
 }
 
 export default function Home() {
-  const [activeIdx, setActiveIdx] = useState(0);
   const galleryRef = useRef<HTMLDivElement>(null);
-
-  // auto-cycle hero still every 4s
-  useEffect(() => {
-    const id = setInterval(() => {
-      setActiveIdx((i) => (i + 1) % heroStills.length);
-    }, 4000);
-    return () => clearInterval(id);
-  }, []);
 
   return (
     <main className="min-h-screen" style={{ background: "linear-gradient(160deg, #f2deae 0%, #e8cc8a 40%, #edd69c 70%, #d4b870 100%)" }}>
 
       {/* ── HERO ── */}
-      <section className="relative w-full" style={{ height: "100svh", minHeight: 560 }}>
+      <section className="relative w-full" style={{ height: "100svh", minHeight: 560, background: "#000" }}>
 
-        {/* stacked hero images */}
-        {heroStills.map((s, i) => (
-          <div
-            key={s.src}
-            className="absolute inset-0 transition-opacity duration-1000"
-            style={{ opacity: i === activeIdx ? 1 : 0 }}
-          >
-            <Image
-              src={s.src}
-              alt={s.alt}
-              fill
-              className="object-cover"
-              priority={i === 0}
-              sizes="100vw"
-            />
-          </div>
-        ))}
+        {/* looping title clip */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/debut-title.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
 
-        {/* dark + sepia overlay */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,4,0,0.38) 0%, rgba(10,4,0,0.10) 40%, rgba(10,4,0,0.65) 100%)" }} />
-
-        {/* hero text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 text-center px-6">
-          <p
-            className="text-xs tracking-[0.5em] uppercase mb-3"
-            style={{ color: "rgba(240,220,170,0.72)", fontFamily: "Georgia, serif" }}
-          >
-            A Short Film by
-          </p>
-          <h1
-            className="font-serif italic"
-            style={{ fontSize: "clamp(3rem, 10vw, 7rem)", color: "#f5e8c8", letterSpacing: "0.02em", lineHeight: 1.05, textShadow: "0 2px 30px rgba(0,0,0,0.5)" }}
-          >
-            Déb<span style={{ fontStyle: "normal" }}>u</span>t
-          </h1>
-          <p
-            className="mt-4 text-xs tracking-[0.4em] uppercase"
-            style={{ color: "rgba(240,220,170,0.55)", fontFamily: "Georgia, serif" }}
-          >
-            Berlin, 2026
-          </p>
-        </div>
-
-        {/* dot nav */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-          {heroStills.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIdx(i)}
-              className="transition-all duration-300"
-              style={{
-                width: i === activeIdx ? 20 : 6,
-                height: 6,
-                borderRadius: 3,
-                background: i === activeIdx ? "rgba(245,232,200,0.85)" : "rgba(245,232,200,0.35)",
-                border: "none",
-                cursor: "pointer",
-              }}
-              aria-label={`Still ${i + 1}`}
-            />
-          ))}
-        </div>
+        {/* subtle bottom fade into page background */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(10,4,0,0.5) 100%)" }} />
       </section>
 
       {/* ── FILM ── */}
