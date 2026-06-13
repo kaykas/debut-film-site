@@ -6,14 +6,13 @@ const stills = [
   { src: "/stills/still-01.jpg", alt: "Designer's workbench by candlelight" },
   { src: "/stills/still-02.jpg", alt: "Mood board and fashion sketches" },
   { src: "/stills/still-03.jpg", alt: "Rose satin skirt against sketch wall" },
-  { src: "/stills/still-04.jpg", alt: "Two mannequins in the studio" },
-  { src: "/stills/still-05.jpg", alt: "Ieva drawing at the table" },
-  { src: "/stills/still-06.jpg", alt: "Studio light — mannequins and drapes" },
-  { src: "/stills/still-07.jpg", alt: "Gold gown full length" },
-  { src: "/stills/still-08.jpg", alt: "Studio with mannequin and ladder" },
-  { src: "/stills/still-09.jpg", alt: "Sewing machine and candles" },
-  { src: "/stills/still-10.jpg", alt: "Pink and lace garments on ladder" },
-  { src: "/stills/still-11.jpg", alt: "Garments draped on ladder" },
+  { src: "/stills/still-04.jpg", alt: "Ieva drawing at the table" },
+  { src: "/stills/still-05.jpg", alt: "Studio light — mannequins and drapes" },
+  { src: "/stills/still-06.jpg", alt: "Gold gown full length" },
+  { src: "/stills/still-07.jpg", alt: "Studio with mannequin and ladder" },
+  { src: "/stills/still-08.jpg", alt: "Sewing machine and candles" },
+  { src: "/stills/still-09.jpg", alt: "Pink and lace garments on ladder" },
+  { src: "/stills/still-10.jpg", alt: "Garments draped on ladder" },
 ];
 
 const credits = [
