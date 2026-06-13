@@ -18,18 +18,14 @@ const stills = [
 const heroStills = [stills[0], stills[2], stills[5], stills[7]];
 
 const credits = [
-  { role: "Directed by",            name: "Sofia Harper" },
+  { role: "A short film by",        name: "Sofia Harper" },
   { role: "Played by",              name: "Ieva Šmaižytė" },
   { role: "Director of Photography",name: "Nil Gruner" },
+  { role: "Assistant Camera",       name: "Daria Makarenko" },
   { role: "Sound",                  name: "Dylan Rathmann" },
   { role: "Location",               name: "Pulsraum Berlin" },
-  { role: "Wardrobe",               name: "Mirela Fischler" },
-  { role: "Makeup",                 name: "Selin Köylü" },
-  { role: "Colour Grade",           name: "Lena Brandauer" },
-  { role: "Music",                  name: "Matias Fröhlich" },
+  { role: "Designs by",             name: "Lilith Kunst" },
 ];
-
-const thanks = ["Yuki Tanaka", "Priya Mehta", "Carlos Vega"];
 
 
 
@@ -225,23 +221,6 @@ export default function Home() {
         </div>
 
         <Ornament />
-        <Rule />
-
-        {/* Special thanks */}
-        <div className="text-center mt-10">
-          <p
-            className="text-xs uppercase tracking-[0.4em] mb-4"
-            style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}
-          >
-            Special Thanks
-          </p>
-          <p
-            className="font-serif italic"
-            style={{ fontSize: "1.15rem", color: "#1a0900", lineHeight: 2, letterSpacing: "0.03em" }}
-          >
-            {thanks.join("  ·  ")}
-          </p>
-        </div>
       </section>
 
       {/* ── CONTACT ── */}
@@ -263,6 +242,18 @@ export default function Home() {
         >
           sofiamharper1@gmail.com
         </a>
+
+        <div className="mt-8">
+          <a
+            href="https://www.instagram.com/debutshortfilm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-serif italic transition-opacity hover:opacity-60"
+            style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", color: "#1a0900", letterSpacing: "0.03em", opacity: 0.75 }}
+          >
+            @debutshortfilm
+          </a>
+        </div>
 
         <Ornament />
 
