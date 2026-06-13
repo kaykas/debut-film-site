@@ -19,18 +19,17 @@ const heroStills = [stills[0], stills[2], stills[5], stills[7]];
 
 const credits = [
   { role: "Directed by",            name: "Sofia Harper" },
-  { role: "Assistant Director",     name: "Tim Hayo" },
   { role: "Played by",              name: "Ieva Šmaižytė" },
   { role: "Director of Photography",name: "Nil Gruner" },
-  { role: "Assistant Camera",       name: "Daria Makarenko" },
   { role: "Sound",                  name: "Dylan Rathmann" },
   { role: "Location",               name: "Pulsraum Berlin" },
-  { role: "Assistant",              name: "Rita González" },
   { role: "Wardrobe",               name: "Mirela Fischler" },
   { role: "Makeup",                 name: "Selin Köylü" },
   { role: "Colour Grade",           name: "Lena Brandauer" },
   { role: "Music",                  name: "Matias Fröhlich" },
 ];
+
+const thanks = ["Yuki Tanaka", "Priya Mehta", "Carlos Vega"];
 
 
 
@@ -226,6 +225,23 @@ export default function Home() {
         </div>
 
         <Ornament />
+        <Rule />
+
+        {/* Special thanks */}
+        <div className="text-center mt-10">
+          <p
+            className="text-xs uppercase tracking-[0.4em] mb-4"
+            style={{ color: "rgba(30,14,2,0.50)", fontFamily: "Georgia, serif" }}
+          >
+            Special Thanks
+          </p>
+          <p
+            className="font-serif italic"
+            style={{ fontSize: "1.15rem", color: "#1a0900", lineHeight: 2, letterSpacing: "0.03em" }}
+          >
+            {thanks.join("  ·  ")}
+          </p>
+        </div>
       </section>
 
       {/* ── CONTACT ── */}
