@@ -99,7 +99,7 @@ export default function Home() {
             className="font-serif italic"
             style={{ fontSize: "clamp(3rem, 10vw, 7rem)", color: "#f5e8c8", letterSpacing: "0.02em", lineHeight: 1.05, textShadow: "0 2px 30px rgba(0,0,0,0.5)" }}
           >
-            Deb<span style={{ fontStyle: "normal" }}>ú</span>t
+            Déb<span style={{ fontStyle: "normal" }}>u</span>t
           </h1>
           <p
             className="mt-4 text-xs tracking-[0.4em] uppercase"
@@ -145,7 +145,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full"
             style={{ border: "none", filter: "sepia(0.12) contrast(0.97)" }}
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-            title="Debút — Sofia Harper"
+            title="Début — Sofia Harper"
           />
         </div>
       </section>
